@@ -1,31 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class gamemaster : MonoBehaviour
+public class gameMaster : MonoBehaviour
 {
+    public int 第幾關 = 1;
+    private Text level;
     bool isWon = false;
-    GameObject[] enemy;
-    // Start is called before the first frame update
+    GameObject[] enemies;
+    public GameObject 繼續;
+
     void Start()
     {
-
+        level = GameObject.Find("/Canvas/Text level").GetComponent<Text>();
+        level.text = "第" + 第幾關.ToString() + "關";
+        繼續.SetActive(false);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (isWon) return;
-        enemy = (GameObject.FindGameObjectsWithTag("enemy"));
-        if (enemy.Length <= 0)
+        if (isWon)
+        {   
+            繼續.SetActive(true);
+            return;
+        }
+        enemies = GameObject.FindGameObjectsWithTag("敵人");
+        if (enemies.Length <= 0)
         {
             isWon = true;
-            Win();
-
+            //WIN();
         }
     }
-    void Win()
+    public void WIN()
     {
-        print("Won");
-  }
+        print("贏了");
+        if (第幾關 == 1)
+        {
+            SceneManager.LoadScene("L2");
+        }
+    }
 }

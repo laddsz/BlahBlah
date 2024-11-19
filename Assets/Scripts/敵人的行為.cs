@@ -5,22 +5,25 @@ using UnityEngine;
 public class 敵人的行為 : MonoBehaviour
 {
     // 移動速度
-    public float 移動速度 = 10.0f;
+    public float 移動速度 = 2.0f;
     // 左右移動範圍
-    public float 移動範圍 = 10.0f;
+    public float 移動範圍 = 5f;
     // 初始位置
     private Vector3 初始位置;
     public int 血量 = 10;
 
-    public GameObject bulletE;
-    public Transform fireposE;
+    public GameObject 子彈;
+    public Transform 發射點;
+
+
     // Start is called before the first frame update
     void Start()
     {
         初始位置 = transform.position;
         血量 = Random.Range(1, 10);
-        InvokeRepeating("EnemyFire", 3f, 1f);
-        
+        float 發射頻率 = Random.Range(0.3f, 3);
+        InvokeRepeating("發射子彈", 3f, 發射頻率);
+      //InvokeRepeating(函式名要雙引號, 第一次調後, 每幾秒調用);
     }
 
     // Update is called once per frame
@@ -35,23 +38,27 @@ public class 敵人的行為 : MonoBehaviour
     {        
         if (collision.transform.tag == "我方子彈")
         {            
-            血量=血量 - 1 ;
-            if(血量<=0)
+            血量--; //簡寫
+            //血量 = 血量 - 1; //標準寫法
+
+            if(血量 <= 0)
             {
                 Destroy(gameObject); 
             }
             Destroy(collision.gameObject);
         }
-        
     }
-    void EnemyFire()
+
+    void 發射子彈() 
     {
+        //Instantiate(遊戲物件, 發射點position, 旋轉角度);
+        GameObject bb = Instantiate(子彈, 發射點.position, Quaternion.identity);
+        bb.GetComponent<Rigidbody>().AddForce(Vector3.down * 32000 * Time.deltaTime);
+        
+        Quaternion 旋轉 = Quaternion.Euler(180, 0, 0);
+        bb.transform.rotation *= 旋轉;
 
-        GameObject bullet = Instantiate(bulletE, fireposE.position, Quaternion.identity);
-        bulletE.GetComponent<Rigidbody>().AddForce(Vector2.up * 1200);
-        bulletE.transform.rotation = Quaternion.Euler(180, 0, 0);
-        Destroy(bulletE, 2f);
-
+        Destroy(bb, 2f);
     }
 
 }

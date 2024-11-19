@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class bulletMove : MonoBehaviour
 {
-    float 速度 = 20
-
-
-
-
-
-       ;
+    float 速度 = 10;
     // Start is called before the first frame update
     void Start()
     {
