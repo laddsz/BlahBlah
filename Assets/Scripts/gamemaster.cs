@@ -1,28 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameMaster : MonoBehaviour
 {
-    public int 第幾關 = 1;
-    private Text level;
     bool isWon = false;
     GameObject[] enemies;
-    public GameObject 繼續;
+
+    public int 第幾關 = 1;
+    private Text 關卡文字;
+    public GameObject 繼續按鈕;
 
     void Start()
     {
-        level = GameObject.Find("/Canvas/Text level").GetComponent<Text>();
-        level.text = "第" + 第幾關.ToString() + "關";
-        繼續.SetActive(false);
+        關卡文字 = GameObject.Find("/Canvas/Text 關卡").GetComponent<Text>();
+        關卡文字.text = "第 " + 第幾關.ToString() + " 關";
+        繼續按鈕.SetActive(false);
     }
     void Update()
     {
         if (isWon)
-        {   
-            繼續.SetActive(true);
+        {
+            繼續按鈕.SetActive(true);
             return;
         }
         enemies = GameObject.FindGameObjectsWithTag("敵人");
@@ -34,10 +35,14 @@ public class gameMaster : MonoBehaviour
     }
     public void WIN()
     {
-        print("贏了");
+        //按一下繼續.... 應該要到下一關，或者是回首頁
         if (第幾關 == 1)
         {
-            SceneManager.LoadScene("L2");
+            SceneManager.LoadScene("LV2");
+        }
+        else 
+        {
+            SceneManager.LoadScene("LV1");
         }
     }
 }
