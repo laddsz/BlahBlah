@@ -10,7 +10,13 @@ public class bulletMove : MonoBehaviour
     {
         this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 速度, ForceMode.Impulse);
         //this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * 速度;
-        Destroy(gameObject,2f);
+         void OnCollisionEnter(Collision collision) {
+            if (collision.transform.tag == "敵人")
+            {
+                Destroy(gameObject);
+            }
+        }
+            Destroy(gameObject,2f);
     }
 
     // Update is called once per frame

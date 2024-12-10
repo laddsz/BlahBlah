@@ -107,7 +107,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9097022419204204660
 MonoBehaviour:
@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2f9795bfe025449a6feaeccf67da55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u79FB\u52D5\u901F\u5EA6": 2
-  "\u79FB\u52D5\u7BC4\u570D": 5
-  "\u8840\u91CF": 150
+  "\u79FB\u52D5\u901F\u5EA6": 1
+  "\u79FB\u52D5\u7BC4\u570D": 6
+  hp: 200
   "\u5B50\u5F48": {fileID: 8536005336905453962, guid: 19468de3724bfcd4f8956dc640b3febb, type: 3}
   "\u767C\u5C04\u9EDE": {fileID: 4129346179023358207}
 --- !u!1 &6499963228787785449
@@ -175,27 +175,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.17799
+      value: 0.40899774
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.17799
+      value: 0.23978814
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.17799
+      value: 0.20301539
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0016831
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.004993
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.314
+      value: 0.42858
       objectReference: {fileID: 0}
     - target: {fileID: 6479803464777412331, guid: d0d9a04af032c7c4fb0c1bfc48e52474, type: 3}
       propertyPath: m_LocalRotation.w

@@ -10,7 +10,7 @@ public class 敵人的行為 : MonoBehaviour
     public float 移動範圍 = 5f;
     // 初始位置
     private Vector3 初始位置;
-    public int 血量 = 10;
+    public int hp = 10;
 
     public GameObject 子彈;
     public Transform 發射點;
@@ -20,8 +20,8 @@ public class 敵人的行為 : MonoBehaviour
     void Start()
     {
         初始位置 = transform.position;
-        血量 = Random.Range(1, 10);
-        float 發射頻率 = Random.Range(0.3f, 3);
+        hp =hp;
+        float 發射頻率 = (3f);
         InvokeRepeating("發射子彈", 3f, 發射頻率);
       //InvokeRepeating(函式名要雙引號, 第一次調後, 每幾秒調用);
     }
@@ -38,10 +38,10 @@ public class 敵人的行為 : MonoBehaviour
     {        
         if (collision.transform.tag == "我方子彈")
         {            
-            血量--; //簡寫
+            hp--; //簡寫
             //血量 = 血量 - 1; //標準寫法
 
-            if(血量 <= 0)
+            if(hp <= 0)
             {
                 Destroy(gameObject); 
             }
@@ -53,7 +53,7 @@ public class 敵人的行為 : MonoBehaviour
     {
         //Instantiate(遊戲物件, 發射點position, 旋轉角度);
         GameObject bb = Instantiate(子彈, 發射點.position, Quaternion.identity);
-        bb.GetComponent<Rigidbody>().AddForce(Vector3.down * 32000 * Time.deltaTime);
+        bb.GetComponent<Rigidbody>().AddForce(Vector3.down * 30000 * Time.deltaTime);
         
         Quaternion 旋轉 = Quaternion.Euler(180, 0, 0);
         bb.transform.rotation *= 旋轉;

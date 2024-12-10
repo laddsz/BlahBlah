@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2f9795bfe025449a6feaeccf67da55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u79FB\u52D5\u901F\u5EA6": 5
+  "\u79FB\u52D5\u901F\u5EA6": 4
   "\u79FB\u52D5\u7BC4\u570D": 5
-  "\u8840\u91CF": 50
+  hp: 30
   "\u5B50\u5F48": {fileID: 8536005336905453962, guid: 19468de3724bfcd4f8956dc640b3febb, type: 3}
   "\u767C\u5C04\u9EDE": {fileID: 4129346179023358207}
 --- !u!1 &6499963228787785449
