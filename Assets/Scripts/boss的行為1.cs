@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class 敵人的行為 : MonoBehaviour
+public class boss的行為 : MonoBehaviour
 {
     // 移動速度
-    public float 移動速度 = 2.0f;
+    public float 移動速度 = 4.0f;
     // 左右移動範圍
     public float 移動範圍 = 5f;
     // 初始位置
     private Vector3 初始位置;
     public int hp = 10;
 
-    public GameObject 子彈;
+    public GameObject bulletE;
     public Transform 發射點;
 
 
@@ -21,8 +21,8 @@ public class 敵人的行為 : MonoBehaviour
     {
         初始位置 = transform.position;
         hp =hp;
-        float 發射頻率 = (3f);
-        InvokeRepeating("發射子彈", 3f, 發射頻率);
+        float 發射頻率 = (0.5f);
+        InvokeRepeating("發射子彈e", 3f, 發射頻率);
       //InvokeRepeating(函式名要雙引號, 第一次調後, 每幾秒調用);
     }
 
@@ -49,16 +49,16 @@ public class 敵人的行為 : MonoBehaviour
         }
     }
 
-    void 發射子彈() 
+    void 發射子彈e() 
     {
         //Instantiate(遊戲物件, 發射點position, 旋轉角度);
-        GameObject bb = Instantiate(子彈, 發射點.position, Quaternion.identity);
-        bb.GetComponent<Rigidbody>().AddForce(Vector3.down * 36000 * Time.deltaTime);
+        GameObject bb = Instantiate(bulletE, 發射點.position, Quaternion.identity);
+        bb.GetComponent<Rigidbody>().AddForce(Vector3.down * 30000 * Time.deltaTime);
         
         Quaternion 旋轉 = Quaternion.Euler(180, 0, 0);
         bb.transform.rotation *= 旋轉;
 
-        Destroy(bb, 4f);
+        Destroy(bb, 2f);
     }
 
 }
